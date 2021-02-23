@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background: rgb(0, 0, 0, 0.9);
+  color: rgb(255, 255, 255, 0.8);
+}
+
+/* ****************************** */
+/* FIRST SECTION CHOOSE THE PLANE */
+.choose-plane {
+  position: relative;
+  text-align: center;
+  height: 100vh;
+  overflow-y: hidden;
+  visibility: visible;
+}
+/* JS */
+.start-game {
+  display: none;
+  visibility: hidden;
+  transition: all 0.5s linear;
+}
+/* END JS END */
+
+.text-header {
+  padding-top: 15vh;
+}
+.text-header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.25rem;
+  padding-bottom: 0.5rem;
+}
+.text-header h2 {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  padding-bottom: 2rem;
+}
+
+.planes {
+  margin: 1rem 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.plane {
+  padding: 1rem;
+  border: 0.25rem solid rgb(255, 255, 255, 0.8);
+  border-radius: 25%;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.plane:hover {
+  background: rgb(255, 255, 255, 0.8);
+  color: rgb(0, 0, 0, 0.9);
+  border: 0.25rem solid rgb(0, 0, 0, 0.9);
+  transform: scale(1.25);
+}
+.plane i {
+  font-size: 7.5rem;
+  margin-bottom: 1.5rem;
+}
+.plane h2 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+}
+.plane h3 {
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  font-style: italic;
+  border-top: 0.1rem solid rgb(255, 255, 255, 0.8);
+}
+
+.cloud1,
+.cloud2,
+.cloud3,
+.cloud4,
+.cloud5 {
+  height: 15%;
+  width: 10%;
+  position: absolute;
+  top: 0;
+  z-index: -2;
+}
+.cloud6,
+.cloud7,
+.cloud8,
+.cloud9 {
+  height: 10%;
+  width: 6.6%;
+  position: absolute;
+  top: 0;
+  z-index: -2;
+}
+.cloud1 {
+  right: 10%;
+  animation: cloud 3s ease infinite;
+}
+.cloud2 {
+  right: 25%;
+  animation: cloud 3s ease infinite 2s;
+}
+.cloud3 {
+  right: 50%;
+  animation: cloud 3s ease infinite 0.5s;
+}
+.cloud4 {
+  right: 70%;
+  animation: cloud 3s ease infinite 2.5s;
+}
+.cloud5 {
+  right: 82%;
+  animation: cloud 3s ease infinite 1s;
+}
+.cloud6 {
+  right: 35%;
+  animation: cloud 3s ease infinite 0.25s;
+}
+.cloud7 {
+  right: 60%;
+  animation: cloud 3s ease infinite 1.35s;
+}
+.cloud8 {
+  right: 0%;
+  animation: cloud 3s ease infinite 2.1s;
+}
+.cloud9 {
+  right: 95%;
+  animation: cloud 3s ease infinite 2.75s;
+}
+
+@keyframes cloud {
+  from {
+    top: 0;
+  }
+  to {
+    top: 150%;
+  }
+}
+
+/* ******** */
+/* GAME WEB */
+.game {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  height: 100vh;
+  overflow-y: hidden;
+  visibility: hidden;
+  display: none;
+}
+
+/* JS */
+.game-play {
+  visibility: visible;
+  display: block;
+}
+/* END JS END */
+
+.border-game {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 100vh;
+  border: 1vw solid rgb(255, 255, 255, 0.8);
+}
+.border-game div {
+  width: 5%;
+  height: 10%;
+}
+
+.game-plane {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translate(-50%, -15%);
+}
+
+/* Object in squares */
+.game-plane i {
+  font-size: 5vw;
+}
+
+.invader {
+  background: url("./img/enemy.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Kind of your character */
+.f16 {
+  background: url("./img/f16.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.long-plane {
+  background: url("./img/long-plane.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.basic-plane {
+  background: url("./img/basic-plane.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.boom {
+  background: red;
+}
+
+.shoot {
+  background: linear-gradient(
+    189deg,
+    rgb(170, 29, 29) 25%,
+    rgb(0, 95, 255) 50%,
+    rgb(29, 170, 53) 75%
+  );
+  border-radius: 50%;
+}
+
+/* Win or Defeat */
+.win,
+.defeat {
+  width: 100vw;
+  height: 100vh;
+  z-index: 999 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: none;
+}
+.win_active,
+.defeat_active {
+  overflow: visible;
+  display: block;
+}
+
+.one {
+  width: 100vw;
+  height: 100vh;
+  padding: 10.5rem;
+  -webkit-box-shadow: inset 0px 0px 35px 20px rgba(255, 255, 255, 1);
+  -moz-box-shadow: inset 0px 0px 35px 20px rgba(255, 255, 255, 1);
+  box-shadow: inset 0px 0px 35px 20px rgba(255, 255, 255, 1);
+  transform: all 0.3s linear;
+}
+.two {
+  margin: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  -webkit-box-shadow: 0px 0px 35px 10px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 0px 35px 10px rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 35px 10px rgba(255, 255, 255, 1);
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.two:hover {
+  transform: scale(1.25);
+  border-radius: 10%;
+}
+.two h1 {
+  font-size: 1rem;
+  padding: 1rem;
+  text-align: center;
+  letter-spacing: 0.25rem;
+  color: rgb(255, 255, 255, 0.8);
+  line-height: 2rem;
+}
